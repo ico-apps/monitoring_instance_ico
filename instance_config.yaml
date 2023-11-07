@@ -1,0 +1,111 @@
+name: Instància Projectes de Seguiment ICO
+
+# Scope defines where the project is developed (region, country, state, continent)
+# i.e Barcelona, Catalunya, Europe
+scopes: ['Catalunya']
+
+# Define in which territory the project is carried out and where itineraries or
+# Monitoring sites are linked
+locations:
+    ambit_catalunya:
+      name: Catalunya
+      scope: Catalunya
+
+admin_user:
+    email: monitoratge@ornitologia.org
+    password: admin
+    first_name: ICO
+    last_name: Admin
+
+collaborator_user:
+    email: collaborador-monitoratge@ornitologia.org
+    password: collaborator
+    first_name: Usuari
+    last_name: Col·laborador
+
+shapes:
+    county:
+      name: Comarques de Catalunya
+      code: county
+      shape_name: comarques_cat
+      complete: True
+      url: https://ico.ams3.digitaloceanspaces.com/data/socc/shapes/comarques_cat.zip
+
+    grid10km:
+      name: Grid UTM 10x10 km
+      code: grid10km
+      shape_name: grid10km
+      complete: True
+      url: https://ico.ams3.digitaloceanspaces.com/data/socc/shapes/grid10km.zip
+
+    rapis_parks:
+      name: Parcs i Espais Naturals de la DIBA i la Generalitat
+      code: rapis_parks
+      shape_name: rapis_parks
+      complete: False
+      url: https://ico.ams3.digitaloceanspaces.com/data/socc/shapes/rapis_parks.zip
+
+
+thesaurus:
+  hbw:
+    ref_code: hbw
+    name: HBW checklist for Aves
+    description: Llista del HBW amb species, subespècies i sp. afegits manualment
+    id_taxo_group: 1
+    url: https://ico.ams3.digitaloceanspaces.com/data/socc/thesaurus/SpeciesTaxonomy_hbw.csv
+    meta: https://ico.ams3.digitaloceanspaces.com/data/socc/thesaurus/SpeciesMetadata_hbw.csv
+
+  socc_aves:
+    ref_code: socc_aves
+    name: SOCC Aves checklist
+    description: Llista d'espècies del SOCC amb els codis de 5 lletres
+    id_taxo_group: 1
+    url: https://ico.ams3.digitaloceanspaces.com/data/socc/thesaurus/SpeciesTaxonomy_socc_aves.csv
+
+  socc_mamm:
+    ref_code: socc_mamm
+    name: SOCC Mammals checklist
+    description: Llista d'espècies de mamífers que apareixen al SOCC amb els codis de 5 lletres
+    id_taxo_group: 2
+    url: https://ico.ams3.digitaloceanspaces.com/data/socc/thesaurus/SpeciesTaxonomy_socc_mamm.csv
+
+  orn_mamm:
+    ref_code: orn_mamm
+    name: Ornitho checklist for Mammals
+    description: Llista d'espècies d'Ornitho de mamífers
+    id_taxo_group: 2
+    url: https://ico.ams3.digitaloceanspaces.com/data/socc/thesaurus/SpeciesTaxonomy_orn_mamm.csv
+    meta: https://ico.ams3.digitaloceanspaces.com/data/socc/thesaurus/SpeciesMetadata_orn_mamm.csv
+
+  ornitho_aves:
+    ref_code: ornitho_aves
+    name: Ornitho checklist for Aves
+    description: Llista d'espècies d'ornitho d'ocells
+    id_taxo_group: 1
+    url: https://ico.ams3.digitaloceanspaces.com/data/socc/thesaurus/SpeciesTaxonomy_ornitho_aves.csv
+
+  rapis_aves:
+    ref_code: rapis_aves
+    name: Rapis Aves checklist
+    description: Llistes d'espècies del projecte RAPIS amb codis de 6 lletres
+    id_taxo_group: 1
+    url: https://ico.ams3.digitaloceanspaces.com/data/socc/thesaurus/SpeciesTaxonomy_rapis_aves.csv
+
+# Species mapping between thesaurus
+species_mappings:
+
+    socc_aves_to_hbw:
+      description: Correspondència entre tesaure antic del SOCC i el HBW (usat per importar dades antigues)
+      url: https://ico.ams3.digitaloceanspaces.com/data/socc/thesaurus/SpeciesMapping_socc_aves.csv
+
+    ornitho_aves_to_hbw:
+      description: Correspondència entre tesaure ornitho i el HBW (usat per API ornitho socc)
+      url: https://ico.ams3.digitaloceanspaces.com/data/socc/thesaurus/SpeciesMapping_ornitho_aves.csv
+
+    socc_mamm_to_orn_mamm:
+      description: Correspondència entre tesaure antic del SOCC i el mamífers ornitho (usat per importar dades antigues)
+      url: https://ico.ams3.digitaloceanspaces.com/data/socc/thesaurus/SpeciesMapping_socc_mamm_orn_mamm.csv
+
+    segre_aves_to_hbw:
+      description: Correspondència entre tesaure antic del SEGRE i el HBW (usat per importar dades antigues)
+      url: https://ico.ams3.digitaloceanspaces.com/data/socc/thesaurus/SpeciesMapping_rapis_aves.csv
